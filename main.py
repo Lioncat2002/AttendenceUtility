@@ -1,9 +1,9 @@
 import openpyxl
-
-fullstudents=openpyxl.load_workbook("test_fullStudents.xlsx")
+import sys
+fullstudents=openpyxl.load_workbook(sys.argv[1])
 
 fullsheet=fullstudents.active
-perdaystudents=openpyxl.load_workbook("test_student_perday.xlsx")
+perdaystudents=openpyxl.load_workbook(sys.argv[2])
 perdaysheet=perdaystudents.active
 allstudents=[fullsheet[f"B{i}"].value for i in range(2,fullsheet.max_row+1)]
 presentstudents=[perdaysheet[f"A{i}"].value for i in range(2,perdaysheet.max_row+1)]
