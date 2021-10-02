@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+ 
+    <title>Attendence utility</title>
+</head>
+<body>
+    Upload the spreadsheet of total students:</br>
+    <br>
+    <input id="allstudents" type="file" ></br>
+    <br>
+    The column containing the registration numbers:</br>
+<input id="allrollcol" type="text" maxlength="1" onkeypress="return /[a-z]/i.test(event.key)">
+
+<hr>
+    Upload the attendece sheet</br>
+    <br>
+    
+    <input id="attendeesheet" type="file"></br>
+    <br>
+    The column containing the registration numbers:</br>
+<input id="presenteerollcol" type="text" maxlength="1" onkeypress="return /[a-z]/i.test(event.key)">
+    <hr>
+<button onclick="check()">Check</button>
+    <div >
+        <h2>Absentees</h2></br>
+        <table id="absentees">
+            
+
+
+        </table>
+
+    </div>
+   
+    <script src="./index.js"></script>
+    
+</body>
+</html>
