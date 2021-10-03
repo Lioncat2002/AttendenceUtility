@@ -11,7 +11,7 @@
 <body>
     Upload the spreadsheet of total students:</br>
     <br>
-    <input  id="allstudents" type="file" ></br>
+    <input  id="allstudents" type="file" accept=".xlsx"></br>
     
     <br>
     The column containing the registration numbers:</br>
@@ -21,12 +21,14 @@
     Upload the attendece sheet</br>
     <br>
     
-    <input id="attendeesheet" type="file"></br>
+    <input id="attendeesheet" type="file" accept=".xlsx"></br>
     <br>
     The column containing the registration numbers:</br>
 <input class="input is-rounded is-danger" id="presenteerollcol" type="text" maxlength="1" onkeypress="return /[a-z]/i.test(event.key)">
     <hr>
+   
 <button onclick="check()" class="button is-primary">Check</button>
+<button class="button is-danger" onclick="window.location.reload()">Reset</button>
     <div >
         <h2>Absentees</h2></br>
         <table class="table is-hoverable is-bordered is-full-width" id="absentees">

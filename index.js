@@ -23,17 +23,18 @@ var presentees=[]
 var totalStudentsjson;
 var totalStudentsIndex;
 var presenteeIndex;
-allstudentsrollcol.addEventListener('change', function() {
+allstudentsrollcol.addEventListener('keyup', function() {
     totalStudentsIndex=mappings[allstudentsrollcol.value.toUpperCase()]
     allStudentsChange();
     })
 
-presenteerollcol.addEventListener('change', function() {
+presenteerollcol.addEventListener('keyup', function() {
         presenteeIndex=mappings[presenteerollcol.value.toUpperCase()]
         presentStudentChange();
         })
 
 function allStudentsChange(){
+    totalStudents=[]
     var temparr=[];
     if(totalStudentsIndex==null){
         alert("Error! registration number column not defined")
@@ -46,23 +47,24 @@ function allStudentsChange(){
             
         }
         totalStudentsjson=JSON.parse(JSON.stringify(Object.assign({},temparr)))
-        console.log(totalStudentsjson)
+        console.log(totalStudents)
       })
 }
 
 
 function presentStudentChange(){
+    presentees=[]
     if(presenteeIndex==null){
         alert("Error! registration number column not defined")
         return;
     }
     readXlsxFile(presentStudents.files[0]).then(function(rows) {
-        for(var i =1;i<rows.length;i++){
+        for(var i =0;i<rows.length;i++){
       
             presentees.push(rows[i][presenteeIndex])
             
         }
-       
+       console.log(presentees)
          })
 }
 
@@ -75,7 +77,9 @@ function check(){
    if(totalStudentsIndex!=null && presenteeIndex!=null){
     for(var i=0;i<totalStudents.length;i++){
         absentees.push(!presentees.includes(totalStudents[i])?totalStudentsjson[i]:null)
+        console.log(!presentees.includes(totalStudents[i])?totalStudentsjson[i]:null)
     }
+    
     viewArea.innerHTML=`<tr>
     <th>Reg. No.</th>
     <th>Name</th>
@@ -98,6 +102,7 @@ function check(){
    }
 
     
-    
+    allStudents.value="";
+    presentStudents.value="";
 }
 
