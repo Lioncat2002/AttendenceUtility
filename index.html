@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
- 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Attendence utility</title>
 </head>
 <body>
     Upload the spreadsheet of total students:</br>
     <br>
-    <input id="allstudents" type="file" ></br>
+    <input  id="allstudents" type="file" ></br>
+    
     <br>
     The column containing the registration numbers:</br>
-<input id="allrollcol" type="text" maxlength="1" onkeypress="return /[a-z]/i.test(event.key)">
+<input class="input is-rounded is-danger" id="allrollcol" type="text" maxlength="1" onkeypress="return /[a-z]/i.test(event.key)">
 
 <hr>
     Upload the attendece sheet</br>
@@ -23,12 +24,12 @@
     <input id="attendeesheet" type="file"></br>
     <br>
     The column containing the registration numbers:</br>
-<input id="presenteerollcol" type="text" maxlength="1" onkeypress="return /[a-z]/i.test(event.key)">
+<input class="input is-rounded is-danger" id="presenteerollcol" type="text" maxlength="1" onkeypress="return /[a-z]/i.test(event.key)">
     <hr>
-<button onclick="check()">Check</button>
+<button onclick="check()" class="button is-primary">Check</button>
     <div >
         <h2>Absentees</h2></br>
-        <table id="absentees">
+        <table class="table is-hoverable is-bordered is-full-width" id="absentees">
             
 
 
