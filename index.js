@@ -3,6 +3,7 @@ const presentStudents=document.getElementById('attendeesheet')
 const allstudentsrollcol=document.getElementById('allrollcol')
 const presenteerollcol=document.getElementById('presenteerollcol')
 const viewArea=document.getElementById('absentees')
+const absenteecount=document.getElementById('absenteecount')
 const mappings={
     'A':0,
     'B':1,
@@ -17,7 +18,7 @@ const mappings={
     'K':10,
 }
 
-
+var absentcount=0
 var totalStudents=[]
 var presentees=[]
 var totalStudentsjson;
@@ -61,7 +62,7 @@ function presentStudentChange(){
     readXlsxFile(presentStudents.files[0]).then(function(rows) {
         for(var i =0;i<rows.length;i++){
       
-            presentees.push(rows[i][presenteeIndex])
+            presentees.push(rows[i][presenteeIndex].toUpperCase())
             
         }
        console.log(presentees)
@@ -87,6 +88,7 @@ function check(){
 </tr>`
     for(var i=0;i<absentees.length;i++){
         if(absentees[i]!=null){
+            absentcount+=1;
             viewArea.innerHTML+=
             `<tr>
                 <th>${absentees[i][0]}</th>
@@ -100,7 +102,7 @@ function check(){
    }else{
        alert("Error! registration number columns not defined")
    }
-
+   absenteecount.innerHTML+=absentcount
     
     allStudents.value="";
     presentStudents.value="";
