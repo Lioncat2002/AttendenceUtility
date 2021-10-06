@@ -69,12 +69,28 @@ function presentStudentChange(){
          })
 }
 
+function ConvertToCSV(objArray) {
+    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    var str = '';
 
+    for (var i = 0; i < array.length; i++) {
+        var line = '';
+        for (var index in array[i]) {
+            if (line != '') line += ','
+
+            line += array[i][index];
+        }
+
+        str += line + '\r\n';
+    }
+
+    return str;
+}
 
 function check(){
     absentees=[];
-
-    
+    csvOutput=[];
+    let csvContent;
    if(totalStudentsIndex!=null && presenteeIndex!=null){
     for(var i=0;i<totalStudents.length;i++){
         absentees.push(!presentees.includes(totalStudents[i])?totalStudentsjson[i]:null)
@@ -89,6 +105,8 @@ function check(){
     for(var i=0;i<absentees.length;i++){
         if(absentees[i]!=null){
             absentcount+=1;
+            csvOutput.push(absentees[i])
+            
             viewArea.innerHTML+=
             `<tr>
                 <th>${absentees[i][0]}</th>
@@ -103,7 +121,17 @@ function check(){
        alert("Error! registration number columns not defined")
    }
    absenteecount.innerHTML+=absentcount
-    
+   csvContent = "data:text/csv;charset=utf-8," 
+    + csvOutput.map(e => e.join(",")).join("\n");
+   var encodedUri = encodeURI(csvContent);
+   var downloadLink = document.createElement("a");
+downloadLink.href = encodedUri;
+downloadLink.download = `absentees_${Date.now()}.csv`;
+
+document.body.appendChild(downloadLink);
+downloadLink.click();
+document.body.removeChild(downloadLink);
+
     allStudents.value="";
     presentStudents.value="";
 }
