@@ -9,35 +9,40 @@
     <title>Attendence utility</title>
 </head>
 <body>
-    Upload the spreadsheet of total students:</br>
-    <br>
-    <input  id="allstudents" type="file" accept=".xlsx"></br>
     
-    <br>
-    The column containing the registration numbers:</br>
-<input class="input is-rounded is-danger" id="allrollcol" type="text" maxlength="1" onkeypress="return /[a-k]/i.test(event.key)">
+   
 
-<hr>
-    Upload the attendece sheet</br>
-    <br>
+        Upload the spreadsheet of total students:</br>
+        <br>
+        <input  id="allstudents" type="file" accept=".xlsx"></br>
+        
+        <br>
+        The column containing the registration numbers:</br>
+    <input class="input is-rounded is-danger" id="allrollcol" type="text" maxlength="1" onkeypress="return /[a-k]/i.test(event.key)">
     
-    <input id="attendeesheet" type="file" accept=".xlsx"></br>
-    <br>
-    The column containing the registration numbers:</br>
-<input class="input is-rounded is-danger" id="presenteerollcol" type="text" maxlength="1" onkeypress="return /[a-k]/i.test(event.key)">
     <hr>
-   
-<button onclick="check()" class="button is-primary">Check</button>
-<button class="button is-danger" onclick="window.location.reload()">Reset</button>
-    <div >
-        <h2 id="absenteecount">Absentees: </h2></br>
-        <table class="table is-hoverable is-bordered is-full-width" id="absentees">
-            
-        </table>
-
-    </div>
-   
-    <script src="./index.js"></script>
+        Upload the attendece sheet</br>
+        <br>
+        
+        <input id="attendeesheet" type="file" accept=".xlsx"></br>
+        <br>
+        The column containing the registration numbers:</br>
+    <input class="input is-rounded is-danger" id="presenteerollcol" type="text" maxlength="1" onkeypress="return /[a-k]/i.test(event.key)">
+        <hr>
+       
+    <button onclick="check()" class="button is-primary">Check</button>
+    <button class="button is-danger" onclick="window.location.reload()">Reset</button>
+        <div >
+            <h2 id="absenteecount">Absentees: </h2></br>
+            <table class="table is-hoverable is-bordered is-full-width" id="absentees">
+                
+            </table>
     
+        </div>
+       
+        <script src="./index.js"></script>
+        
+
+ 
 </body>
 </html>
