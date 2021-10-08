@@ -93,6 +93,7 @@ function check(){
     let csvContent;
     if(presentees.length==0){
         alert("Error Code: 403 \n Spreadsheet access forbidden \n Please open the attendence sheet and click on enable editing")
+        window.location.reload()
         return
     }
 
