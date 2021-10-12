@@ -62,7 +62,7 @@ function presentStudentChange(){
     readXlsxFile(presentStudents.files[0]).then(function(rows) {
         for(var i =0;i<rows.length;i++){
       
-            presentees.push(rows[i][presenteeIndex].toUpperCase())
+            presentees.push(rows[i][presenteeIndex]?.toUpperCase())
             
         }
        console.log(presentees)
