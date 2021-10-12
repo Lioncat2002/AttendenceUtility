@@ -2,10 +2,7 @@
  A small python script to find which students are absent
  
  ## Dependencies:
- ### Python:
- - [openpyxl](https://openpyxl.readthedocs.io/en/stable/index.html)
- - python 3
- 
+
  ### Javascript:
  - [read-excel-file](https://www.npmjs.com/package/read-excel-file#cdn)</br>
  Note: The CDN version has been used
