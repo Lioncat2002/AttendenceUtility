@@ -1,5 +1,5 @@
 # attendenceUtility
- A small python script to find which students are absent
+ A small website to find the absentees
  
  ## Dependencies:
 
